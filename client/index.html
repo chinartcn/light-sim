@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Light Sim — 多模型拖放</title>
+  <style>
+    :root {
+      --bg-panel: rgba(15, 20, 30, 0.85);
+      --bg-button: #1e2638;
+      --bg-button-hover: #2a3550;
+      --text-main: #9cf;
+      --border-color: #334466;
+      --danger: #522;
+    }
+    body { margin: 0; overflow: hidden; background: #111; font-family: monospace; user-select: none; touch-action: none; }
+    
+    /* ====== 顶部横向工具栏 ====== */
+    #ui {
+      position: fixed; top: 12px; left: 12px; right: 12px; z-index: 20;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      color: var(--text-main); font-size: 12px;
+      background: var(--bg-panel); border-radius: 8px;
+      backdrop-filter: blur(8px); pointer-events: auto;
+      padding: 10px 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      border: 1px solid var(--border-color);
+    }
+    select, button { 
+      background: var(--bg-button); color: var(--text-main); 
+      border: 1px solid var(--border-color); 
+      padding: 6px 10px; border-radius: 6px; font-family: monospace; 
+      cursor: pointer; transition: all 0.2s; font-size: 12px;
+      white-space: nowrap; box-sizing: border-box;
+    }
+    button:hover { background: var(--bg-button-hover); border-color: #55a; }
+    button:active { transform: scale(0.95); }
+    .divider { width: 1px; height: 20px; background: var(--border-color); margin: 0 4px; }
+    #status { margin-left: auto; color: #6f6; font-size: 11px; white-space: nowrap; }
+    #selected-info { color: #fa0; font-weight: bold; display: none; max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ====== 悬浮工具台面板 ====== */
+    #toolbox-panel {
+      position: fixed; top: 80px; right: 12px; z-index: 19;
+      background: var(--bg-panel); border: 1px solid var(--border-color);
+      border-radius: 8px; width: 320px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8); overflow: hidden;
+      display: none; flex-direction: column;
+      animation: slideDown 0.2s ease;
+    }
+    #toolbox-panel.show { display: flex; }
+    
+    .toolbox-grid { padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .toolbox-grid .full-width { grid-column: span 2; }
+    .tool-btn {
+      background: var(--bg-button); color: var(--text-main);
+      border: 1px solid var(--border-color); border-radius: 6px;
+      padding: 10px; font-size: 12px; font-weight: bold;
+      text-align: center; transition: all 0.2s;
+    }
+    .tool-btn.active { background: rgba(50, 150, 50, 0.2); border-color: #6f6; color: #6f6; box-shadow: inset 0 0 10px rgba(0,255,0,0.1); }
+
+    /* ====== 模型选择弹窗 (保持模态) ====== */
+    #model-picker-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+      z-index: 100; display: none; justify-content: center; align-items: center;
+    }
+    #model-picker-overlay.show { display: flex; animation: fadeIn 0.2s ease; }
+    #model-picker {
+      background: var(--bg-panel); border: 1px solid var(--border-color);
+      border-radius: 12px; width: 90%; max-width: 600px; max-height: 80vh;
+      display: flex; flex-direction: column; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+    }
+    #model-picker-header {
+      padding: 15px 20px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--text-main); font-size: 16px; font-weight: bold;
+    }
+    #close-picker-btn { background: transparent; border: none; font-size: 20px; color: #f66; padding: 0; }
+    #model-grid {
+      padding: 20px; overflow-y: auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+    }
+    .model-card {
+      background: #111; border: 1px solid #333; border-radius: 8px;
+      overflow: hidden; cursor: pointer; transition: all 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .model-card:hover { border-color: #55a; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,100,255,0.2); }
+    .model-thumb {
+      width: 100%; height: 120px; background: #222;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      color: #666; font-size: 12px; overflow: hidden;
+    }
+    .model-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .model-name {
+      padding: 8px 4px; text-align: center; font-size: 11px; color: var(--text-main);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      background: rgba(0,0,0,0.8); border-top: 1px solid #333;
+      min-height: 14px;
+    }
+
+    /* ====== 摇杆等不变 ====== */
+    #joystick-container { position: fixed; bottom: 40px; right: 40px; z-index: 30; display: flex; justify-content: center; align-items: center; width: 160px; height: 160px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(155, 204, 255, 0.2); box-shadow: inset 0 0 20px rgba(0,0,0,0.5); touch-action: none; pointer-events: auto; }
+    #joystick-stick { width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(155, 204, 255, 0.9)); box-shadow: 0 4px 15px rgba(0,0,0,0.6); pointer-events: none; position: absolute; transition: transform 0.1s ease-out; }
+    #height-controls { position: fixed; bottom: 220px; right: 65px; display: flex; flex-direction: column; gap: 15px; z-index: 30; pointer-events: auto; }
+    .height-btn { width: 60px; height: 60px; border-radius: 50%; background: rgba(0,0,0,0.6); border: 2px solid rgba(155, 204, 255, 0.3); color: #9cf; font-size: 24px; display: flex; justify-content: center; align-items: center; user-select: none; touch-action: none; cursor: pointer; backdrop-filter: blur(4px); transition: background 0.1s; }
+    .height-btn:active { background: rgba(155, 204, 255, 0.4); }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <button id="open-picker-btn">📦 添加模型</button>
+    <button id="lock-cam-btn">🔒 锁定</button>
+    <button id="toggle-drag-btn">🖐️ 拖动</button>
+    <div class="divider"></div>
+    <div id="model-controls" style="display: flex; gap: 6px; opacity: 0.5; pointer-events: none; align-items: center;">
+      <span id="selected-info">未选中</span>
+      <button id="btn-model-up">📦 ⬆️</button>
+      <button id="btn-model-down">📦 ⬇️</button>
+    </div>
+    <div class="divider"></div>
+    <button id="advanced-toggle-btn">⚙️ 工具台</button>
+    <div id="status">连接中...</div>
+    <input type="file" id="file-input" accept=".json" style="display: none;" />
+  </div>
+
+  <!-- 悬浮工具台面板 (挂载在顶部工具栏下方) -->
+  <div id="toolbox-panel">
+    <div class="toolbox-grid">
+      <button class="tool-btn" id="btn-hdr">🌅 HDR 天空</button>
+      <button class="tool-btn active" id="btn-main-light">💡 主光源</button>
+      <button class="tool-btn active" id="btn-point-light">🔦 点光源</button>
+      <button class="tool-btn" id="btn-ssao">🌑 环境光遮蔽</button>
+      <button class="tool-btn" id="btn-reflect">✨ 镜面反射</button>
+      <button class="tool-btn" id="btn-enhance">✨ 材质金属化</button>
+      <button class="tool-btn" id="btn-save">💾 保存布局</button>
+      <button class="tool-btn" id="btn-load">📂 导入布局</button>
+      <button class="tool-btn" id="btn-screenshot">📸 保存截图</button>
+      <button class="tool-btn" id="btn-refresh-preview">🔄 刷新预览</button>
+      <button class="tool-btn full-width" id="btn-clear" style="color: #f66; border-color: #522; background: rgba(255,0,0,0.1);">🗑️ 清空场景</button>
+    </div>
+  </div>
+
+  <!-- 模型选择弹窗 (保留模态) -->
+  <div id="model-picker-overlay">
+    <div id="model-picker">
+      <div id="model-picker-header">
+        <span>📦 选择要添加的模型</span>
+        <button id="close-picker-btn">✖</button>
+      </div>
+      <div id="model-grid"></div>
+    </div>
+  </div>
+
+  <div id="height-controls">
+    <div class="height-btn" id="btn-cam-up">⬆️</div>
+    <div class="height-btn" id="btn-cam-down">⬇️</div>
+  </div>
+
+  <div id="joystick-container">
+    <div id="joystick-stick"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

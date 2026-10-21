@@ -1,0 +1,24 @@
+replace {
+  file: client/src/main.js
+  selector: {"kind":"variable","name":"modelSelect"}
+  content:
+    const modelSelect = document.getElementById('model-select');
+
+    // 高级操作下拉逻辑（单次声明）
+    const advToggleBtn = document.getElementById('advanced-toggle-btn');
+    const advTools = document.getElementById('advanced-tools');
+    if (advToggleBtn && advTools) {
+      advToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        advTools.classList.toggle('show');
+        advToggleBtn.classList.toggle('active');
+      });
+      document.addEventListener('click', (e) => {
+        if (!advTools.contains(e.target) && e.target !== advToggleBtn) {
+          advTools.classList.remove('show');
+          advToggleBtn.classList.remove('active');
+        }
+      });
+    }
+  /#end
+}

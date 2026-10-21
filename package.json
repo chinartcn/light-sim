@@ -1,0 +1,22 @@
+{
+  "name": "light-sim",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node server/index.js",
+    "dev:client": "vite --config client/vite.config.js",
+    "build": "vite build --config client/vite.config.js",
+    "preview": "vite preview --config client/vite.config.js"
+  },
+  "dependencies": {
+    "@nickpaustian/atlas": "^0.1.0",
+    "three": "^0.169.0",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@rtcn/tred": "^4.5.1",
+    "concurrently": "^9.0.0",
+    "vite": "^8.3.5"
+  }
+}

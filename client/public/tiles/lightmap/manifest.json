@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "tileSize": 256,
+  "width": 512,
+  "height": 512,
+  "levels": 1,
+  "format": "rgba8"
+}

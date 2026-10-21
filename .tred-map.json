@@ -1,0 +1,141 @@
+{
+  "totalFiles": 3,
+  "totalLines": 570,
+  "files": {
+    "client/src/main.js": {
+      "lines": 461,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "updateJoystick",
+          "line": 143,
+          "column": 1,
+          "start": 5462,
+          "end": 5934,
+          "selector": {
+            "kind": "function",
+            "functionName": "updateJoystick"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "setupHoldBtn",
+          "line": 157,
+          "column": 1,
+          "start": 5946,
+          "end": 6236,
+          "selector": {
+            "kind": "function",
+            "functionName": "setupHoldBtn"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "fetchModels",
+          "line": 174,
+          "column": 1,
+          "start": 6812,
+          "end": 7237,
+          "selector": {
+            "kind": "function",
+            "functionName": "fetchModels"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "loadModel",
+          "line": 188,
+          "column": 1,
+          "start": 7239,
+          "end": 8518,
+          "selector": {
+            "kind": "function",
+            "functionName": "loadModel"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "clearHighlight",
+          "line": 233,
+          "column": 1,
+          "start": 8845,
+          "end": 9113,
+          "selector": {
+            "kind": "function",
+            "functionName": "clearHighlight"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "onPointerUp",
+          "line": 296,
+          "column": 1,
+          "start": 11117,
+          "end": 11301,
+          "selector": {
+            "kind": "function",
+            "functionName": "onPointerUp"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "connectWebSocket",
+          "line": 374,
+          "column": 1,
+          "start": 13636,
+          "end": 14577,
+          "selector": {
+            "kind": "function",
+            "functionName": "connectWebSocket"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "animate",
+          "line": 405,
+          "column": 1,
+          "start": 14771,
+          "end": 16363,
+          "selector": {
+            "kind": "function",
+            "functionName": "animate"
+          }
+        }
+      ]
+    },
+    "client/vite.config.js": {
+      "lines": 39,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "modelsApiPlugin",
+          "line": 6,
+          "column": 1,
+          "start": 137,
+          "end": 960,
+          "selector": {
+            "kind": "function",
+            "functionName": "modelsApiPlugin"
+          }
+        }
+      ]
+    },
+    "server/index.js": {
+      "lines": 70,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "computeGlobalLightFrame",
+          "line": 4,
+          "column": 1,
+          "start": 52,
+          "end": 666,
+          "selector": {
+            "kind": "function",
+            "functionName": "computeGlobalLightFrame"
+          }
+        }
+      ]
+    }
+  }
+}

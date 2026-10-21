@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/@rtcn/tred/schema.json",
+  "dir": ["client/src", "server"],
+  "exclude": ["node_modules", "dist", "client/public"],
+  "extensions": [".js", ".ts", ".html", ".cst"],
+  "allowNodejs": false,
+  "patch": {
+    "fuzzyThreshold": 0.9,
+    "fuzzyMinMargin": 0.05
+  }
+}

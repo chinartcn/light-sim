@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Local environment and secrets
+.env
+.env.local
+certs/
+
+# Editor and OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Temp and log files
+*.log
+*.cjs
+*.diff
