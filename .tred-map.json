@@ -1,41 +1,58 @@
 {
-  "totalFiles": 3,
-  "totalLines": 570,
+  "totalFiles": 15,
+  "totalLines": 2483,
   "files": {
-    "client/src/main.js": {
-      "lines": 461,
+    "client/src/controls/joystick.js": {
+      "lines": 49,
       "outline": [
         {
           "kind": "function",
-          "name": "updateJoystick",
-          "line": 143,
+          "name": "createJoystick",
+          "line": 3,
           "column": 1,
-          "start": 5462,
-          "end": 5934,
+          "start": 33,
+          "end": 1334,
           "selector": {
             "kind": "function",
-            "functionName": "updateJoystick"
+            "functionName": "createJoystick"
+          }
+        }
+      ]
+    },
+    "client/src/main.js": {
+      "lines": 743,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "setProbeMode",
+          "line": 140,
+          "column": 1,
+          "start": 4827,
+          "end": 5752,
+          "selector": {
+            "kind": "function",
+            "functionName": "setProbeMode"
           }
         },
         {
           "kind": "function",
-          "name": "setupHoldBtn",
-          "line": 157,
+          "name": "buildManifest",
+          "line": 322,
           "column": 1,
-          "start": 5946,
-          "end": 6236,
+          "start": 11015,
+          "end": 11625,
           "selector": {
             "kind": "function",
-            "functionName": "setupHoldBtn"
+            "functionName": "buildManifest"
           }
         },
         {
           "kind": "function",
           "name": "fetchModels",
-          "line": 174,
+          "line": 417,
           "column": 1,
-          "start": 6812,
-          "end": 7237,
+          "start": 13848,
+          "end": 14938,
           "selector": {
             "kind": "function",
             "functionName": "fetchModels"
@@ -44,10 +61,10 @@
         {
           "kind": "function",
           "name": "loadModel",
-          "line": 188,
+          "line": 456,
           "column": 1,
-          "start": 7239,
-          "end": 8518,
+          "start": 15402,
+          "end": 17307,
           "selector": {
             "kind": "function",
             "functionName": "loadModel"
@@ -55,50 +72,874 @@
         },
         {
           "kind": "function",
-          "name": "clearHighlight",
-          "line": 233,
+          "name": "getContactShadowTexture",
+          "line": 523,
           "column": 1,
-          "start": 8845,
-          "end": 9113,
+          "start": 17375,
+          "end": 17989,
           "selector": {
             "kind": "function",
-            "functionName": "clearHighlight"
+            "functionName": "getContactShadowTexture"
           }
         },
         {
           "kind": "function",
-          "name": "onPointerUp",
-          "line": 296,
+          "name": "applyContactShadow",
+          "line": 540,
           "column": 1,
-          "start": 11117,
-          "end": 11301,
+          "start": 17991,
+          "end": 18581,
           "selector": {
             "kind": "function",
-            "functionName": "onPointerUp"
-          }
-        },
-        {
-          "kind": "function",
-          "name": "connectWebSocket",
-          "line": 374,
-          "column": 1,
-          "start": 13636,
-          "end": 14577,
-          "selector": {
-            "kind": "function",
-            "functionName": "connectWebSocket"
+            "functionName": "applyContactShadow"
           }
         },
         {
           "kind": "function",
           "name": "animate",
-          "line": 405,
+          "line": 644,
           "column": 1,
-          "start": 14771,
-          "end": 16363,
+          "start": 21396,
+          "end": 23495,
           "selector": {
             "kind": "function",
             "functionName": "animate"
+          }
+        }
+      ]
+    },
+    "client/src/network/light-sync.js": {
+      "lines": 191,
+      "outline": [
+        {
+          "kind": "class",
+          "name": "LightSync",
+          "line": 36,
+          "column": 1,
+          "start": 684,
+          "end": 4898,
+          "selector": {
+            "kind": "class",
+            "className": "LightSync"
+          },
+          "children": [
+            {
+              "kind": "constructor",
+              "name": "constructor",
+              "line": 40,
+              "column": 3,
+              "start": 795,
+              "end": 1258
+            },
+            {
+              "kind": "method",
+              "name": "connect",
+              "line": 54,
+              "column": 3,
+              "start": 1262,
+              "end": 2122,
+              "selector": {
+                "kind": "method",
+                "className": "LightSync",
+                "methodName": "connect"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_handle",
+              "line": 90,
+              "column": 3,
+              "start": 2126,
+              "end": 3973,
+              "selector": {
+                "kind": "method",
+                "className": "LightSync",
+                "methodName": "_handle"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "update",
+              "line": 156,
+              "column": 3,
+              "start": 4013,
+              "end": 4426,
+              "selector": {
+                "kind": "method",
+                "className": "LightSync",
+                "methodName": "update"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "toSphericalHarmonics",
+              "line": 173,
+              "column": 3,
+              "start": 4506,
+              "end": 4843,
+              "selector": {
+                "kind": "method",
+                "className": "LightSync",
+                "methodName": "toSphericalHarmonics"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispose",
+              "line": 187,
+              "column": 3,
+              "start": 4847,
+              "end": 4896,
+              "selector": {
+                "kind": "method",
+                "className": "LightSync",
+                "methodName": "dispose"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "client/src/scene/room-builder.js": {
+      "lines": 174,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "makeMaterial",
+          "line": 35,
+          "column": 1,
+          "start": 717,
+          "end": 913,
+          "selector": {
+            "kind": "function",
+            "functionName": "makeMaterial"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "wall",
+          "line": 46,
+          "column": 1,
+          "start": 950,
+          "end": 1166,
+          "selector": {
+            "kind": "function",
+            "functionName": "wall"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "slab",
+          "line": 55,
+          "column": 1,
+          "start": 1213,
+          "end": 1429,
+          "selector": {
+            "kind": "function",
+            "functionName": "slab"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "wallWithDoor",
+          "line": 67,
+          "column": 1,
+          "start": 1516,
+          "end": 2092,
+          "selector": {
+            "kind": "function",
+            "functionName": "wallWithDoor"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "buildRooms",
+          "line": 85,
+          "column": 1,
+          "start": 2165,
+          "end": 4961,
+          "selector": {
+            "kind": "function",
+            "functionName": "buildRooms"
+          }
+        }
+      ]
+    },
+    "client/src/scene/room-probe-material.js": {
+      "lines": 141,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "patchRoomProbe",
+          "line": 33,
+          "column": 1,
+          "start": 960,
+          "end": 2394,
+          "selector": {
+            "kind": "function",
+            "functionName": "patchRoomProbe"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "createProbeUniforms",
+          "line": 84,
+          "column": 1,
+          "start": 2429,
+          "end": 2644,
+          "selector": {
+            "kind": "function",
+            "functionName": "createProbeUniforms"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "writeSH",
+          "line": 96,
+          "column": 1,
+          "start": 2699,
+          "end": 2901,
+          "selector": {
+            "kind": "function",
+            "functionName": "writeSH"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "cloneMaterial",
+          "line": 109,
+          "column": 1,
+          "start": 2997,
+          "end": 3147,
+          "selector": {
+            "kind": "function",
+            "functionName": "cloneMaterial"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "bindObjectProbe",
+          "line": 121,
+          "column": 1,
+          "start": 3251,
+          "end": 3792,
+          "selector": {
+            "kind": "function",
+            "functionName": "bindObjectProbe"
+          }
+        }
+      ]
+    },
+    "client/src/scene/room-registry.js": {
+      "lines": 203,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "smoothstep",
+          "line": 20,
+          "column": 1,
+          "start": 438,
+          "end": 577,
+          "selector": {
+            "kind": "function",
+            "functionName": "smoothstep"
+          }
+        },
+        {
+          "kind": "class",
+          "name": "RoomRegistry",
+          "line": 25,
+          "column": 1,
+          "start": 579,
+          "end": 4630,
+          "selector": {
+            "kind": "class",
+            "className": "RoomRegistry"
+          },
+          "children": [
+            {
+              "kind": "constructor",
+              "name": "constructor",
+              "line": 26,
+              "column": 3,
+              "start": 609,
+              "end": 955
+            },
+            {
+              "kind": "method",
+              "name": "addRoom",
+              "line": 44,
+              "column": 3,
+              "start": 1225,
+              "end": 1568,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "addRoom"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRoom",
+              "line": 58,
+              "column": 3,
+              "start": 1572,
+              "end": 1620,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "getRoom"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setRoomSH",
+              "line": 63,
+              "column": 3,
+              "start": 1650,
+              "end": 2031,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "setRoomSH"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "roomAt",
+              "line": 82,
+              "column": 3,
+              "start": 2063,
+              "end": 2217,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "roomAt"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "shAt",
+              "line": 93,
+              "column": 3,
+              "start": 2297,
+              "end": 3313,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "shAt"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "bindObject",
+              "line": 141,
+              "column": 3,
+              "start": 3535,
+              "end": 3738,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "bindObject"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "unbindObject",
+              "line": 149,
+              "column": 3,
+              "start": 3778,
+              "end": 3859,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "unbindObject"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "update",
+              "line": 156,
+              "column": 3,
+              "start": 3911,
+              "end": 4438,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "update"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setGlobalProbeMode",
+              "line": 182,
+              "column": 3,
+              "start": 4559,
+              "end": 4628,
+              "selector": {
+                "kind": "method",
+                "className": "RoomRegistry",
+                "methodName": "setGlobalProbeMode"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "makeSH",
+          "line": 190,
+          "column": 1,
+          "start": 4699,
+          "end": 5050,
+          "selector": {
+            "kind": "function",
+            "functionName": "makeSH"
+          }
+        }
+      ]
+    },
+    "client/src/utils/post-processing.js": {
+      "lines": 90,
+      "outline": [
+        {
+          "kind": "class",
+          "name": "ScaledSSAOPass",
+          "line": 17,
+          "column": 1,
+          "start": 528,
+          "end": 871,
+          "selector": {
+            "kind": "class",
+            "className": "ScaledSSAOPass"
+          },
+          "children": [
+            {
+              "kind": "constructor",
+              "name": "constructor",
+              "line": 18,
+              "column": 3,
+              "start": 570,
+              "end": 693
+            },
+            {
+              "kind": "method",
+              "name": "setSize",
+              "line": 23,
+              "column": 3,
+              "start": 697,
+              "end": 869,
+              "selector": {
+                "kind": "method",
+                "className": "ScaledSSAOPass",
+                "methodName": "setSize"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "name": "PostProcessing",
+          "line": 30,
+          "column": 1,
+          "start": 873,
+          "end": 2419,
+          "selector": {
+            "kind": "class",
+            "className": "PostProcessing"
+          },
+          "children": [
+            {
+              "kind": "constructor",
+              "name": "constructor",
+              "line": 31,
+              "column": 3,
+              "start": 905,
+              "end": 1647
+            },
+            {
+              "kind": "method",
+              "name": "setSSAO",
+              "line": 61,
+              "column": 3,
+              "start": 1651,
+              "end": 1763,
+              "selector": {
+                "kind": "method",
+                "className": "PostProcessing",
+                "methodName": "setSSAO"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "applyTier",
+              "line": 67,
+              "column": 3,
+              "start": 1782,
+              "end": 2081,
+              "selector": {
+                "kind": "method",
+                "className": "PostProcessing",
+                "methodName": "applyTier"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "resize",
+              "line": 75,
+              "column": 3,
+              "start": 2085,
+              "end": 2222,
+              "selector": {
+                "kind": "method",
+                "className": "PostProcessing",
+                "methodName": "resize"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "line": 81,
+              "column": 3,
+              "start": 2226,
+              "end": 2417,
+              "selector": {
+                "kind": "method",
+                "className": "PostProcessing",
+                "methodName": "render"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "client/src/utils/quality-tier.js": {
+      "lines": 165,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "detectTier",
+          "line": 57,
+          "column": 1,
+          "start": 1095,
+          "end": 1776,
+          "selector": {
+            "kind": "function",
+            "functionName": "detectTier"
+          }
+        },
+        {
+          "kind": "class",
+          "name": "QualityTier",
+          "line": 83,
+          "column": 1,
+          "start": 1778,
+          "end": 3871,
+          "selector": {
+            "kind": "class",
+            "className": "QualityTier"
+          },
+          "children": [
+            {
+              "kind": "constructor",
+              "name": "constructor",
+              "line": 84,
+              "column": 3,
+              "start": 1807,
+              "end": 2025
+            },
+            {
+              "kind": "method",
+              "name": "onChange",
+              "line": 93,
+              "column": 3,
+              "start": 2029,
+              "end": 2093,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "onChange"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_emit",
+              "line": 98,
+              "column": 3,
+              "start": 2097,
+              "end": 2177,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "_emit"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "set",
+              "line": 102,
+              "column": 3,
+              "start": 2181,
+              "end": 2342,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "set"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setManual",
+              "line": 110,
+              "column": 3,
+              "start": 2366,
+              "end": 2430,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "setManual"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setAuto",
+              "line": 115,
+              "column": 3,
+              "start": 2434,
+              "end": 2499,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "setAuto"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "watchFPS",
+              "line": 124,
+              "column": 3,
+              "start": 2555,
+              "end": 3284,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "watchFPS"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "applyToRenderer",
+              "line": 147,
+              "column": 3,
+              "start": 3313,
+              "end": 3494,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "applyToRenderer"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "describe",
+              "line": 152,
+              "column": 3,
+              "start": 3498,
+              "end": 3869,
+              "selector": {
+                "kind": "method",
+                "className": "QualityTier",
+                "methodName": "describe"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "client/src/utils/reflection.js": {
+      "lines": 136,
+      "outline": [
+        {
+          "kind": "class",
+          "name": "ReflectionProbe",
+          "line": 18,
+          "column": 1,
+          "start": 434,
+          "end": 3863,
+          "selector": {
+            "kind": "class",
+            "className": "ReflectionProbe"
+          },
+          "children": [
+            {
+              "kind": "constructor",
+              "name": "constructor",
+              "line": 19,
+              "column": 3,
+              "start": 467,
+              "end": 1229
+            },
+            {
+              "kind": "method",
+              "name": "captureRoom",
+              "line": 48,
+              "column": 3,
+              "start": 1394,
+              "end": 1984,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "captureRoom"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "applyToMaterial",
+              "line": 68,
+              "column": 3,
+              "start": 2012,
+              "end": 2189,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "applyToMaterial"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFallback",
+              "line": 76,
+              "column": 3,
+              "start": 2237,
+              "end": 2378,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "setFallback"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "enableProbe",
+              "line": 82,
+              "column": 3,
+              "start": 2382,
+              "end": 2481,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "enableProbe"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateProbe",
+              "line": 87,
+              "column": 3,
+              "start": 2485,
+              "end": 2629,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "updateProbe"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "loadHDR",
+              "line": 96,
+              "column": 3,
+              "start": 2698,
+              "end": 3465,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "loadHDR"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "disable",
+              "line": 121,
+              "column": 3,
+              "start": 3469,
+              "end": 3598,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "disable"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispose",
+              "line": 127,
+              "column": 3,
+              "start": 3602,
+              "end": 3861,
+              "selector": {
+                "kind": "method",
+                "className": "ReflectionProbe",
+                "methodName": "dispose"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "client/src/utils/thumbnail.js": {
+      "lines": 123,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "getRenderer",
+          "line": 10,
+          "column": 1,
+          "start": 248,
+          "end": 475,
+          "selector": {
+            "kind": "function",
+            "functionName": "getRenderer"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "generateThumbnail",
+          "line": 18,
+          "column": 1,
+          "start": 477,
+          "end": 3225,
+          "selector": {
+            "kind": "function",
+            "functionName": "generateThumbnail"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "clearThumbnailCache",
+          "line": 112,
+          "column": 1,
+          "start": 3227,
+          "end": 3553,
+          "selector": {
+            "kind": "function",
+            "functionName": "clearThumbnailCache"
+          }
+        }
+      ]
+    },
+    "client/src/utils/ui.js": {
+      "lines": 7,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "setupHoldBtn",
+          "line": 2,
+          "column": 1,
+          "start": 10,
+          "end": 307,
+          "selector": {
+            "kind": "function",
+            "functionName": "setupHoldBtn"
           }
         }
       ]
@@ -121,18 +962,112 @@
       ]
     },
     "server/index.js": {
-      "lines": 70,
+      "lines": 147,
       "outline": [
         {
           "kind": "function",
-          "name": "computeGlobalLightFrame",
-          "line": 4,
+          "name": "baseSH",
+          "line": 23,
           "column": 1,
-          "start": 52,
-          "end": 666,
+          "start": 486,
+          "end": 682,
           "selector": {
             "kind": "function",
-            "functionName": "computeGlobalLightFrame"
+            "functionName": "baseSH"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "computeRoomSH",
+          "line": 54,
+          "column": 1,
+          "start": 1040,
+          "end": 1431,
+          "selector": {
+            "kind": "function",
+            "functionName": "computeRoomSH"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "buildSHFrame",
+          "line": 72,
+          "column": 1,
+          "start": 1433,
+          "end": 2173,
+          "selector": {
+            "kind": "function",
+            "functionName": "buildSHFrame"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "buildRoomList",
+          "line": 100,
+          "column": 1,
+          "start": 2175,
+          "end": 2789,
+          "selector": {
+            "kind": "function",
+            "functionName": "buildRoomList"
+          }
+        }
+      ]
+    },
+    "test/protocol.mjs": {
+      "lines": 124,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "waitForServer",
+          "line": 21,
+          "column": 1,
+          "start": 527,
+          "end": 1093,
+          "selector": {
+            "kind": "function",
+            "functionName": "waitForServer"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "ok",
+          "line": 44,
+          "column": 1,
+          "start": 1111,
+          "end": 1298,
+          "selector": {
+            "kind": "function",
+            "functionName": "ok"
+          }
+        },
+        {
+          "kind": "function",
+          "name": "readRoomSH",
+          "line": 85,
+          "column": 1,
+          "start": 2352,
+          "end": 2618,
+          "selector": {
+            "kind": "function",
+            "functionName": "readRoomSH"
+          }
+        }
+      ]
+    },
+    "test/verify.mjs": {
+      "lines": 151,
+      "outline": [
+        {
+          "kind": "function",
+          "name": "ok",
+          "line": 16,
+          "column": 1,
+          "start": 425,
+          "end": 612,
+          "selector": {
+            "kind": "function",
+            "functionName": "ok"
           }
         }
       ]
